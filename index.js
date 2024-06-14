@@ -1,9 +1,14 @@
 import express from 'express';
+import cors from 'cors';
 import connectDB from './connectDB.js';
 import postRouter from './routes/posts.js';
 import userRouter from './routes/user.js';
 
+// const express = require("express")
+
 const app = express();
+
+app.use(cors());
 app.use(express.json());
 connectDB();
 

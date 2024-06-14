@@ -5,7 +5,7 @@ const postRouter = express.Router();
 const posts = [{ id: 0, title: 'Awesome Auth', body: 'Authentication and Authorization are awesome' }];
 
 postRouter.get('/', (req, res) => res.json(posts));
-postRouter.post('/', (req, res) => {
+postRouter.post('/', requireAuth, (req, res) => {
   const id = posts.length;
   const newPost = req.body;
   posts.push({ id, ...newPost });
